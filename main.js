@@ -78,18 +78,81 @@ var formData = [
   }
 ];
 
-console.log(formData[1].type);
+// // first name
+// --var inputFirstName = document.createElement('input');
+// --  inputFirstName.setAttribute('type', formData[0].type);
+//   inputFirstName.setAttribute('placeholder', formData[0].label);
+//   // icon goes here
+//   inputFirstName.setAttribute('id', formData[0].id);
+//   inputFirstName.style.display = 'block';
+//   formNode.appendChild(inputFirstName);
+//   console.log(inputFirstName);
+
+
+//
 for (var i = 0; i < formData.length; i++) {
-  // if ()
   var input = formData[i];
+  if (input.type === 'text' || input.type === 'email' || input.type === 'tel') {
+    var myElement = document.createElement('input');
+    myElement.setAttribute('type', input.type);
+    myElement.setAttribute('placeholder', input.label);
+    myElement.setAttribute('id', input.id);
+    document.querySelector('.signup').appendChild(myElement);
+  }else if (input.type === 'select') {
+    var variableName = document.createElement('select');
+  } else if (input.type === 'textarea') {
+    var variableName =document.createElement('textarea');
+  }
+
+
+
+
+  // console.log('i', i);
+  // var input = formData[i];
+  // var inputFirstName = input.type;
+  // console.log('type', inputFirstName);
+  // function createElement(variableName) {
+    // if (input.type === 'text' || input.type === 'email' || input.type === 'tel') {
+    //   var variableName = document.createElement('input');
+    // }else if (input.type === 'select') {
+    //   var variableName = document.createElement('select');
+    // } else if (input.type === 'textarea') {
+    //   var variableName =document.createElement('textarea');
+    // }
+  // }
+  // console.log('what are you', createElement);
+
+  }
+
+//
+  // creating a function to make this DRY
+// function createElement(variableName) {
+//   if (input.type === 'text') {
+//     var variableName = document.createElement('input');
+//   } else if (input.type === 'email') {
+//     var variableName = document.createElement('input');
+//   }else if (input.type === 'tel') {
+//     var variableName = document.createElement('input');
+//   }else if (input.type === 'select') {
+//     var variableName = document.createElement('select');
+//   } else if (input.type === 'textarea') {
+//     var variableName =document.createElement('textarea');
+//   }
+//   variableName.setAttribute('type', input.type);
+// }
+
+
+
+
+
+
+
+
   // console.log(formData[0].type);
-}
 
 // parent element
 var formNode = document.querySelector('.signup');
   formNode.style.width = 90 + '%';
-  // formNode.style.marginLeft = 'auto';
-  // formNode.style.marginRight = 'auto';
 
 // header
 
@@ -104,135 +167,134 @@ var signUpHeader = document.createElement('h1');
 //   inputFirstNameBefore.style.fontFamily = 'FontAwesome';
 //   formNode.appendChild(inputFirstNameBefore);
 
-
-// first name
-var inputFirstName = document.createElement('input');
-  inputFirstName.setAttribute('type', formData[0].type);
-  inputFirstName.setAttribute('placeholder', formData[0].label);
-  // icon goes here
-  inputFirstName.setAttribute('id', formData[0].id);
-  inputFirstName.style.display = 'block';
-  formNode.appendChild(inputFirstName);
-  console.log(inputFirstName);
-
-
-// last name
-var inputLastName = document.createElement('input');
-  inputLastName.setAttribute('type', formData[1].type);
-  inputLastName.setAttribute('placeholder', formData[1].label);
-  // icon goes here
-  inputLastName.setAttribute('id', formData[1].id);
-  inputLastName.style.display = 'block';
-  formNode.appendChild(inputLastName);
-
-// email address
-var inputEmailAddress = document.createElement('input');
-  inputEmailAddress.setAttribute('type', formData[2].type);
-  inputEmailAddress.setAttribute('placeholder', formData[2].label);
-  // icon goes here
-  inputEmailAddress.setAttribute('id', formData[2].id);
-  inputEmailAddress.style.display = 'block';
-  formNode.appendChild(inputEmailAddress);
-
-// website
-var inputWebsite = document.createElement('input');
-  inputWebsite.setAttribute('type', formData[3].type);
-  inputWebsite.setAttribute('placeholder', formData[3].label);
-  // icon goes here
-  inputWebsite.setAttribute('id', formData[3].id);
-  inputWebsite.style.display = 'block';
-  formNode.appendChild(inputWebsite);
-
-// language select
-var selectLanguage = document.createElement('select');
-  selectLanguage.setAttribute('type', formData[4].type);
-  selectLanguage.setAttribute('placeholder', formData[4].label);
-  selectLanguage.setAttribute('id', formData[4].id);
-  selectLanguage.style.display = 'block';
-  selectLanguage.style.width = 150 + 'px';
-  formNode.appendChild(selectLanguage);
-
-// options loop
-for (var j = 0; j < formData[4].options.length; j++) {
-  var inputOptions = formData[4].options[i];
-  // console.log(formData[4].options.length);
-}
-
-  // language options
-  var optionDefault = document.createElement('option');
-    optionDefault.setAttribute('value', 'Sel_Lang');
-    optionDefault.textContent = 'Select language...';
-    selectLanguage.appendChild(optionDefault);
-
-  var optionEnglish = document.createElement('option');
-    optionEnglish.setAttribute('value', formData[4].options[0].value);
-    optionEnglish.textContent = formData[4].options[0].label;
-    selectLanguage.appendChild(optionEnglish);
-
-  var optionFrench = document.createElement('option');
-    optionFrench.setAttribute('value', formData[4].options[1].value);
-    optionFrench.textContent = formData[4].options[1].label;
-    selectLanguage.appendChild(optionFrench);
-
-  var optionSpanish = document.createElement('option');
-    optionSpanish.setAttribute('value', formData[4].options[2].value);
-    optionSpanish.textContent = formData[4].options[2].label;
-    selectLanguage.appendChild(optionSpanish);
-
-  var optionChinese = document.createElement('option');
-    optionChinese.setAttribute('value', formData[4].options[3].value);
-    optionChinese.textContent = formData[4].options[3].label;
-    selectLanguage.appendChild(optionChinese);
-
-  var optionJapanese = document.createElement('option');
-    optionJapanese.setAttribute('value', formData[4].options[4].value);
-    optionJapanese.textContent = formData[4].options[4].label;
-    selectLanguage.appendChild(optionJapanese);
-
-// comment textarea
-var textareaComment = document.createElement('textarea');
-  textareaComment.setAttribute('type', formData[5].type);
-  textareaComment.setAttribute('placeholder', formData[5].label);
-  textareaComment.setAttribute('id', formData[5].id);
-  textareaComment.style.display = 'block';
-  // textareaComment.style.width = 90 + '%';
-  formNode.appendChild(textareaComment);
-
-// mobile number
-var inputMobile = document.createElement('input');
-  inputMobile.setAttribute('type', formData[6].type);
-  inputMobile.setAttribute('placeholder', formData[6].label);
-  // icon goes here
-  inputMobile.setAttribute('id', formData[6].id);
-  inputMobile.style.display = 'block';
-  formNode.appendChild(inputMobile);
-
-// home number
-var inputHome = document.createElement('input');
-  inputHome.setAttribute('type', formData[7].type);
-  inputHome.setAttribute('placeholder', formData[7].label);
-  // icon goes here
-  inputHome.setAttribute('id', formData[7].id);
-  inputHome.style.display = 'block';
-  formNode.appendChild(inputHome);
-
-// submit button
-var submitButton = document.createElement('button');
-  submitButton.setAttribute('type', 'submit');
-  submitButton.textContent = 'Submit Form';
-  formNode.appendChild(submitButton);
-
-
-
-// element.setAttribute('attribute name', attribute value)
-
-// var parentElement = document.querySelector('.favorite-sodas');
-// var listItem = document.createElement('li');
-// listItem.textContent = 'Sprite';
-// parentElement.appendChild(listItem);
-
-
-
-// do another loop later for the options value that is also an array to loop through and get the values--this is for input[4]
-
-// console.log(formData.length);
+// // first name
+// var inputFirstName = document.createElement('input');
+//   inputFirstName.setAttribute('type', formData[0].type);
+//   inputFirstName.setAttribute('placeholder', formData[0].label);
+//   // icon goes here
+//   inputFirstName.setAttribute('id', formData[0].id);
+//   inputFirstName.style.display = 'block';
+//   formNode.appendChild(inputFirstName);
+//   console.log(inputFirstName);
+//
+//
+// // last name
+// var inputLastName = document.createElement('input');
+//   inputLastName.setAttribute('type', formData[1].type);
+//   inputLastName.setAttribute('placeholder', formData[1].label);
+//   // icon goes here
+//   inputLastName.setAttribute('id', formData[1].id);
+//   inputLastName.style.display = 'block';
+//   formNode.appendChild(inputLastName);
+//
+// // email address
+// var inputEmailAddress = document.createElement('input');
+//   inputEmailAddress.setAttribute('type', formData[2].type);
+//   inputEmailAddress.setAttribute('placeholder', formData[2].label);
+//   // icon goes here
+//   inputEmailAddress.setAttribute('id', formData[2].id);
+//   inputEmailAddress.style.display = 'block';
+//   formNode.appendChild(inputEmailAddress);
+//
+// // website
+// var inputWebsite = document.createElement('input');
+//   inputWebsite.setAttribute('type', formData[3].type);
+//   inputWebsite.setAttribute('placeholder', formData[3].label);
+//   // icon goes here
+//   inputWebsite.setAttribute('id', formData[3].id);
+//   inputWebsite.style.display = 'block';
+//   formNode.appendChild(inputWebsite);
+//
+// // language select
+// var selectLanguage = document.createElement('select');
+//   selectLanguage.setAttribute('type', formData[4].type);
+//   selectLanguage.setAttribute('placeholder', formData[4].label);
+//   selectLanguage.setAttribute('id', formData[4].id);
+//   selectLanguage.style.display = 'block';
+//   selectLanguage.style.width = 150 + 'px';
+//   formNode.appendChild(selectLanguage);
+//
+// // options loop
+// for (var j = 0; j < formData[4].options.length; j++) {
+//   var inputOptions = formData[4].options[i];
+//   // console.log(formData[4].options.length);
+// }
+//
+//   // language options
+//   var optionDefault = document.createElement('option');
+//     optionDefault.setAttribute('value', 'Sel_Lang');
+//     optionDefault.textContent = 'Select language...';
+//     selectLanguage.appendChild(optionDefault);
+//
+//   var optionEnglish = document.createElement('option');
+//     optionEnglish.setAttribute('value', formData[4].options[0].value);
+//     optionEnglish.textContent = formData[4].options[0].label;
+//     selectLanguage.appendChild(optionEnglish);
+//
+//   var optionFrench = document.createElement('option');
+//     optionFrench.setAttribute('value', formData[4].options[1].value);
+//     optionFrench.textContent = formData[4].options[1].label;
+//     selectLanguage.appendChild(optionFrench);
+//
+//   var optionSpanish = document.createElement('option');
+//     optionSpanish.setAttribute('value', formData[4].options[2].value);
+//     optionSpanish.textContent = formData[4].options[2].label;
+//     selectLanguage.appendChild(optionSpanish);
+//
+//   var optionChinese = document.createElement('option');
+//     optionChinese.setAttribute('value', formData[4].options[3].value);
+//     optionChinese.textContent = formData[4].options[3].label;
+//     selectLanguage.appendChild(optionChinese);
+//
+//   var optionJapanese = document.createElement('option');
+//     optionJapanese.setAttribute('value', formData[4].options[4].value);
+//     optionJapanese.textContent = formData[4].options[4].label;
+//     selectLanguage.appendChild(optionJapanese);
+//
+// // comment textarea
+// var textareaComment = document.createElement('textarea');
+//   textareaComment.setAttribute('type', formData[5].type);
+//   textareaComment.setAttribute('placeholder', formData[5].label);
+//   textareaComment.setAttribute('id', formData[5].id);
+//   textareaComment.style.display = 'block';
+//   // textareaComment.style.width = 90 + '%';
+//   formNode.appendChild(textareaComment);
+//
+// // mobile number
+// var inputMobile = document.createElement('input');
+//   inputMobile.setAttribute('type', formData[6].type);
+//   inputMobile.setAttribute('placeholder', formData[6].label);
+//   // icon goes here
+//   inputMobile.setAttribute('id', formData[6].id);
+//   inputMobile.style.display = 'block';
+//   formNode.appendChild(inputMobile);
+//
+// // home number
+// var inputHome = document.createElement('input');
+//   inputHome.setAttribute('type', formData[7].type);
+//   inputHome.setAttribute('placeholder', formData[7].label);
+//   // icon goes here
+//   inputHome.setAttribute('id', formData[7].id);
+//   inputHome.style.display = 'block';
+//   formNode.appendChild(inputHome);
+//
+// // submit button
+// var submitButton = document.createElement('button');
+//   submitButton.setAttribute('type', 'submit');
+//   submitButton.textContent = 'Submit Form';
+//   formNode.appendChild(submitButton);
+//
+//
+//
+// // element.setAttribute('attribute name', attribute value)
+//
+// // var parentElement = document.querySelector('.favorite-sodas');
+// // var listItem = document.createElement('li');
+// // listItem.textContent = 'Sprite';
+// // parentElement.appendChild(listItem);
+//
+//
+//
+// // do another loop later for the options value that is also an array to loop through and get the values--this is for input[4]
+//
+// // console.log(formData.length);
