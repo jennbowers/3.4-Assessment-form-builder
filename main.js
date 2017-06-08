@@ -109,7 +109,6 @@ var signUpHeader = document.createElement('h1');
 var inputFirstName = document.createElement('input');
   inputFirstName.setAttribute('type', formData[0].type);
   inputFirstName.setAttribute('placeholder', formData[0].label);
-  inputFirstName.setAttribute('class', '<i class="' + formData[0].icon + '"></i>');
   // icon goes here
   inputFirstName.setAttribute('id', formData[0].id);
   inputFirstName.style.display = 'block';
@@ -160,6 +159,11 @@ for (var j = 0; j < formData[4].options.length; j++) {
 }
 
   // language options
+  var optionDefault = document.createElement('option');
+    optionDefault.setAttribute('value', 'Sel_Lang');
+    optionDefault.textContent = 'Select language...';
+    selectLanguage.appendChild(optionDefault);
+
   var optionEnglish = document.createElement('option');
     optionEnglish.setAttribute('value', formData[4].options[0].value);
     optionEnglish.textContent = formData[4].options[0].label;
@@ -205,12 +209,18 @@ var inputMobile = document.createElement('input');
 
 // home number
 var inputHome = document.createElement('input');
-inputHome.setAttribute('type', formData[7].type);
-inputHome.setAttribute('placeholder', formData[7].label);
-// icon goes here
-inputHome.setAttribute('id', formData[7].id);
-inputHome.style.display = 'block';
-formNode.appendChild(inputHome);
+  inputHome.setAttribute('type', formData[7].type);
+  inputHome.setAttribute('placeholder', formData[7].label);
+  // icon goes here
+  inputHome.setAttribute('id', formData[7].id);
+  inputHome.style.display = 'block';
+  formNode.appendChild(inputHome);
+
+// submit button
+var submitButton = document.createElement('button');
+  submitButton.setAttribute('type', 'submit');
+  submitButton.textContent = 'Submit Form';
+  formNode.appendChild(submitButton);
 
 
 
