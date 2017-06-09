@@ -78,16 +78,17 @@ var formData = [
   }
 ];
 
-// // first name
-// --var inputFirstName = document.createElement('input');
-// --  inputFirstName.setAttribute('type', formData[0].type);
-//   inputFirstName.setAttribute('placeholder', formData[0].label);
-//   // icon goes here
-//   inputFirstName.setAttribute('id', formData[0].id);
-//   inputFirstName.style.display = 'block';
-//   formNode.appendChild(inputFirstName);
-//   console.log(inputFirstName);
 
+// parent element
+var formNode = document.querySelector('.signup');
+  // formNode.style.width = 90 + '%';
+
+// header
+
+var signUpHeader = document.createElement('h1');
+  signUpHeader.textContent = 'Sign Up For My Web App';
+  // signUpHeader.style.background = '#428BCA';
+  formNode.appendChild(signUpHeader);
 
 //
 for (var i = 0; i < formData.length; i++) {
@@ -97,13 +98,47 @@ for (var i = 0; i < formData.length; i++) {
     myElement.setAttribute('type', input.type);
     myElement.setAttribute('placeholder', input.label);
     myElement.setAttribute('id', input.id);
+    myElement.style.display = 'block';
     document.querySelector('.signup').appendChild(myElement);
-  }else if (input.type === 'select') {
-    var variableName = document.createElement('select');
+  } else if (input.type === 'select') {
+    var myElement = document.createElement('select');
+    myElement.setAttribute('type', input.type);
+    myElement.setAttribute('placeholder', input.label);
+    myElement.setAttribute('id', input.id);
+    myElement.style.display = 'block';
+    document.querySelector('.signup').appendChild(myElement);
+
   } else if (input.type === 'textarea') {
-    var variableName =document.createElement('textarea');
+    var myElement = document.createElement('textarea');
+    myElement.setAttribute('type', input.type);
+    myElement.setAttribute('placeholder', input.label);
+    myElement.setAttribute('id', input.id);
+    myElement.style.display = 'block';
+    document.querySelector('.signup').appendChild(myElement);
   }
 
+}
+
+//   var optionEnglish = document.createElement('option');
+//     optionEnglish.setAttribute('value', formData[4].options[0].value);
+//     optionEnglish.textContent = formData[4].options[0].label;
+//     selectLanguage.appendChild(optionEnglish);
+
+for (var i = 0; i < formData[4].options.length; i++) {
+  var inputOptions = formData[4].options[i];
+  var selectOptions = document.createElement('option');
+  selectOptions.setAttribute('value', inputOptions.value);
+  selectOptions.textContent = inputOptions.label;
+  document.getElementById('user-language').appendChild(selectOptions);
+
+}
+
+
+// submit button
+var submitButton = document.createElement('button');
+  submitButton.setAttribute('type', 'submit');
+  submitButton.textContent = 'Submit Form';
+  formNode.appendChild(submitButton);
 
 
 
@@ -122,7 +157,7 @@ for (var i = 0; i < formData.length; i++) {
   // }
   // console.log('what are you', createElement);
 
-  }
+  // }
 
 //
   // creating a function to make this DRY
@@ -150,16 +185,7 @@ for (var i = 0; i < formData.length; i++) {
 
   // console.log(formData[0].type);
 
-// parent element
-var formNode = document.querySelector('.signup');
-  formNode.style.width = 90 + '%';
 
-// header
-
-var signUpHeader = document.createElement('h1');
-  signUpHeader.textContent = 'Sign Up For My Web App';
-  // signUpHeader.style.background = '#428BCA';
-  formNode.appendChild(signUpHeader);
 
 // first name icon
 // var inputFirstNameBefore = document.createElement('input::before');
@@ -214,10 +240,11 @@ var signUpHeader = document.createElement('h1');
 //   selectLanguage.style.width = 150 + 'px';
 //   formNode.appendChild(selectLanguage);
 //
-// // options loop
-// for (var j = 0; j < formData[4].options.length; j++) {
+// options loop
+// for (var i = 0; i < formData[4].options.length; i++) {
 //   var inputOptions = formData[4].options[i];
-//   // console.log(formData[4].options.length);
+//   console.log(inputOptions);
+  // console.log(formData[4].options.length);
 // }
 //
 //   // language options
