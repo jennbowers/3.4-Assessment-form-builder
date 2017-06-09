@@ -90,56 +90,70 @@ var signUpHeader = document.createElement('h1');
   // signUpHeader.style.background = '#428BCA';
   formNode.appendChild(signUpHeader);
 
-//
-for (var i = 0; i < formData.length; i++) {
-  var input = formData[i];
-  if (input.type === 'text' || input.type === 'email' || input.type === 'tel') {
-    var myElement = document.createElement('input');
+// EVEN MORE DRY
+  for (var i = 0; i < formData.length; i++) {
+    var input = formData[i];
+    if (input.type === 'text' || input.type === 'email' || input.type === 'tel') {
+      var myElement = document.createElement('input');
+    } else if (input.type === 'select') {
+      var myElement = document.createElement('select');
+    } else if (input.type === 'textarea') {
+      var myElement = document.createElement('textarea');
+    }
     myElement.setAttribute('type', input.type);
     myElement.setAttribute('placeholder', input.label);
     myElement.setAttribute('id', input.id);
     myElement.style.display = 'block';
-    document.querySelector('.signup').appendChild(myElement);
-  } else if (input.type === 'select') {
-    var myElement = document.createElement('select');
-    myElement.setAttribute('type', input.type);
-    myElement.setAttribute('placeholder', input.label);
-    myElement.setAttribute('id', input.id);
-    myElement.style.display = 'block';
-    document.querySelector('.signup').appendChild(myElement);
+    formNode.appendChild(myElement);
 
-  } else if (input.type === 'textarea') {
-    var myElement = document.createElement('textarea');
-    myElement.setAttribute('type', input.type);
-    myElement.setAttribute('placeholder', input.label);
-    myElement.setAttribute('id', input.id);
-    myElement.style.display = 'block';
-    document.querySelector('.signup').appendChild(myElement);
   }
 
-}
+  // options array
 
-//   var optionEnglish = document.createElement('option');
-//     optionEnglish.setAttribute('value', formData[4].options[0].value);
-//     optionEnglish.textContent = formData[4].options[0].label;
-//     selectLanguage.appendChild(optionEnglish);
-
-for (var i = 0; i < formData[4].options.length; i++) {
-  var inputOptions = formData[4].options[i];
-  var selectOptions = document.createElement('option');
-  selectOptions.setAttribute('value', inputOptions.value);
-  selectOptions.textContent = inputOptions.label;
-  document.getElementById('user-language').appendChild(selectOptions);
-
-}
+  for (var i = 0; i < formData[4].options.length; i++) {
+    var inputOptions = formData[4].options[i];
+    var selectOptions = document.createElement('option');
+    selectOptions.setAttribute('value', inputOptions.value);
+    selectOptions.textContent = inputOptions.label;
+    document.getElementById('user-language').appendChild(selectOptions);
+  }
 
 
-// submit button
-var submitButton = document.createElement('button');
-  submitButton.setAttribute('type', 'submit');
-  submitButton.textContent = 'Submit Form';
-  formNode.appendChild(submitButton);
+  // submit button
+  var submitButton = document.createElement('button');
+    submitButton.setAttribute('type', 'submit');
+    submitButton.textContent = 'Submit Form';
+    formNode.appendChild(submitButton);
 
+
+
+//made it more DRY
+// for (var i = 0; i < formData.length; i++) {
+//   var input = formData[i];
+//   if (input.type === 'text' || input.type === 'email' || input.type === 'tel') {
+//     var myElement = document.createElement('input');
+//     myElement.setAttribute('type', input.type);
+//     myElement.setAttribute('placeholder', input.label);
+//     myElement.setAttribute('id', input.id);
+//     myElement.style.display = 'block';
+//     document.querySelector('.signup').appendChild(myElement);
+//   } else if (input.type === 'select') {
+//     var myElement = document.createElement('select');
+//     myElement.setAttribute('type', input.type);
+//     myElement.setAttribute('placeholder', input.label);
+//     myElement.setAttribute('id', input.id);
+//     myElement.style.display = 'block';
+//     document.querySelector('.signup').appendChild(myElement);
+//   } else if (input.type === 'textarea') {
+//     var myElement = document.createElement('textarea');
+//     myElement.setAttribute('type', input.type);
+//     myElement.setAttribute('placeholder', input.label);
+//     myElement.setAttribute('id', input.id);
+//     myElement.style.display = 'block';
+//     document.querySelector('.signup').appendChild(myElement);
+//   }
+//
+// }
 
 
   // console.log('i', i);
