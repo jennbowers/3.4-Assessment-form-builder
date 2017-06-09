@@ -90,22 +90,34 @@ var signUpHeader = document.createElement('h1');
   // signUpHeader.style.background = '#428BCA';
   formNode.appendChild(signUpHeader);
 
+  // lets try adding in font awesome...
+
 // EVEN MORE DRY
   for (var i = 0; i < formData.length; i++) {
     var input = formData[i];
+// lets try adding in font awesome...
+    if (formData[i].icon) {
+      var divNode = document.createElement('div');
+      formNode.appendChild(divNode);
+      var spanNode = document.createElement('span');
+      spanNode.setAttribute('class', 'fa ' + formData[i].icon);
+      divNode.appendChild(spanNode);
+    }
+
+// And creating inputs and setting attributes
     if (input.type === 'text' || input.type === 'email' || input.type === 'tel') {
       var myElement = document.createElement('input');
+      divNode.appendChild(myElement);
     } else if (input.type === 'select') {
       var myElement = document.createElement('select');
+      formNode.appendChild(myElement);
     } else if (input.type === 'textarea') {
       var myElement = document.createElement('textarea');
+      divNode.appendChild(myElement);
     }
     myElement.setAttribute('type', input.type);
     myElement.setAttribute('placeholder', input.label);
     myElement.setAttribute('id', input.id);
-    myElement.style.display = 'block';
-    formNode.appendChild(myElement);
-
   }
 
   // options array
